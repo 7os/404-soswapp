@@ -3,6 +3,8 @@
 $conf_path = \str_replace([
   "/vendor/7os/web-page-404",
   "/dev/7os/web-page-404",
+  "\\vendor\\7os\\web-page-404",
+  "\\dev\\7os\\web-page-404",
 ],"",__DIR__) . "/.system/appdata/7os/web-page-404";
 $conf_file = $conf_path . "/app.config";
 
@@ -20,4 +22,4 @@ $base_include = $conf->baseInclude;
 if (!\file_exists($base_include)) {
   throw new \Exception("[\"{$base_include}\"]: does not exist, kindly revert to 7 OS Web - app manual.", 1);
 }
-\define('APP_BASE_INC',$base_include);
+\define('APP_BASE_INC',$base_include . "/inc.php");
