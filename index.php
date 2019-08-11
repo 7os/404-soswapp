@@ -7,7 +7,7 @@ require_once APP_BASE_INC;
   <head>
     <meta charset="utf-8">
     <title>404 - Not Found</title>
-    <?php include PRJ_ICONSET; ?>
+    <?php include PRJ_INC_ICONSET; ?>
     <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'>
     <meta name="description" content="<?php echo PRJ_DESCRIPTION; ?>">
     <meta name="author" content="<?php echo PRJ_AUTHOR; ?>">
