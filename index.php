@@ -9,12 +9,11 @@ require_once APP_BASE_INC;
     <title>404 - Not Found</title>
     <?php include PRJ_ICONSET; ?>
     <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'>
-    <meta name="keywords" content="7, seven, os, operating, system, template">
-    <meta name="description" content="7 OS Web - app template">
-    <meta name="author" content="Your developer">
-    <meta name="creator" content="7 OS">
-    <meta name="publisher" content="Your company">
-    <meta name="robots" content='index'>
+    <meta name="description" content="<?php echo PRJ_DESCRIPTION; ?>">
+    <meta name="author" content="<?php echo PRJ_AUTHOR; ?>">
+    <meta name="creator" content="<?php echo PRJ_CREATOR; ?>">
+    <meta name="publisher" content="<?php echo PRJ_PUBLISHER; ?>">
+    <meta name="robots" content='nofollow'>
     <!-- Theming styles -->
     <link rel="stylesheet" href="//cdn.tymfrontiers.net/get/7os/web-theme/web-theme.css">
     <link rel="stylesheet" href="//cdn.tymfrontiers.net/get/7os/web-theme/web-theme-<?php echo PRJ_THEME; ?>.css">
@@ -27,9 +26,15 @@ require_once APP_BASE_INC;
   </head>
   <body>
     <?php include PRJ_INC_HEADER; ?>
+    <br class="c-f">
     <section id="main-content">
-      <h1>404 - Not Found</h1>
-      <p>Sorry we can find it</p>
+      <div class="view-space">
+        <div class="sec-div padding -p20">
+          <h1> <i class="far fa-unlink fa-2x"></i> 404 - Not Found</h1>
+          
+        </div>
+
+      </div>
     </section>
     <?php include PRJ_INC_FOOTER; ?>
     <!-- Required scripts -->
