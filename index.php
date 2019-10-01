@@ -1,6 +1,13 @@
 <?php
+namespace TymFrontiers;
 require_once "app.init.php";
 require_once APP_BASE_INC;
+$gen = new Generic;
+$params = $gen->requestParam([
+  "request" => ["request","text",3,0],
+  "message" => ["message","text",3,0]
+],'get',[]);
+if (!empty($params['message'])) $params['message'] = \urldecode($params['message']);
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr" manifest="./site.manifest">
@@ -15,12 +22,12 @@ require_once APP_BASE_INC;
     <meta name="publisher" content="<?php echo PRJ_PUBLISHER; ?>">
     <meta name="robots" content='nofollow'>
     <!-- Theming styles -->
-    <link rel="stylesheet" href="//cdn.tymfrontiers.net/get/7os/web-theme/web-theme.css">
-    <link rel="stylesheet" href="//cdn.tymfrontiers.net/get/7os/web-theme/web-theme-<?php echo PRJ_THEME; ?>.css">
+    <link rel="stylesheet" href="//cdn.tymapp.com/get/7os/web-theme/web-theme.css">
+    <link rel="stylesheet" href="//cdn.tymapp.com/get/7os/web-theme/web-theme-<?php echo PRJ_THEME; ?>.css">
     <!-- optional plugin -->
-    <link rel="stylesheet" href="//cdn.tymfrontiers.net/get/7os/web-plugin/web-plugin.css">
-    <link rel="stylesheet" href="//cdn.tymfrontiers.net/get/7os/web-drag-nav/web-drag-nav.css">
-    <link rel="stylesheet" href="//cdn.tymfrontiers.net/get/7os/web-fader-box/web-fader-box.css">
+    <link rel="stylesheet" href="//cdn.tymapp.com/get/7os/web-plugin/web-plugin.css">
+    <link rel="stylesheet" href="//cdn.tymapp.com/get/7os/web-drag-nav/web-drag-nav.css">
+    <link rel="stylesheet" href="//cdn.tymapp.com/get/7os/web-fader-box/web-fader-box.css">
     <!-- Project styling -->
     <link rel="stylesheet" href="<?php echo \html_style("base.css"); ?>">
   </head>
@@ -30,22 +37,35 @@ require_once APP_BASE_INC;
     <section id="main-content">
       <div class="view-space">
         <div class="sec-div padding -p20">
-          <h1> <i class="far fa-unlink fa-2x"></i> 404 - Not Found</h1>
-          
+          <h1> <i class="fas fa-unlink fa-2x"></i> Resource not found</h1>
+          <?php if (!empty($params['request'])): ?>
+            <blockquote>
+              <p><?php echo $params['request']; ?></p>
+            </blockquote>
+          <?php endif; ?>
+          <p>
+            <?php if (!empty($params["message"])){
+              echo $params['message'];
+            } else {
+              echo "Sorry, We could not find what you are looking for on the server.";
+            } ?>
+          </p>
+          <p> <i class="fas fa-asterisk"></i> Try <a href="<?php echo WHOST . "/about/sitemap" ?>"><b>the Site map</b></a> to see if you will find what you are looking for.</p>
+          <br class="c-f">
         </div>
 
       </div>
     </section>
     <?php include PRJ_INC_FOOTER; ?>
     <!-- Required scripts -->
-    <script src="//cdn.tymfrontiers.net/get/jquery/jquery/jquery.min.js">  </script>
-    <script src="//cdn.tymfrontiers.net/get/7os/js-generic-fn/js-generic-fn.min.js">  </script>
-    <script src="//cdn.tymfrontiers.net/get/7os/web-theme/web-theme.min.js" charset="utf-8"></script>
+    <script src="//cdn.tymapp.com/get/jquery/jquery/jquery.min.js">  </script>
+    <script src="//cdn.tymapp.com/get/7os/js-generic-fn/js-generic-fn.min.js">  </script>
+    <script src="//cdn.tymapp.com/get/7os/web-theme/web-theme.min.js" ></script>
     <!-- optional plugins -->
-    <script src="//cdn.tymfrontiers.net/get/7os/web-plugin/web-plugin.min.js" charset="utf-8"></script>
-    <script src="//cdn.tymfrontiers.net/get/7os/web-drag-nav/web-drag-nav.min.js" charset="utf-8"></script>
-    <script src="//cdn.tymfrontiers.net/get/7os/web-fader-box/web-fader-box.min.js" charset="utf-8"></script>
+    <script src="//cdn.tymapp.com/get/7os/web-plugin/web-plugin.min.js" ></script>
+    <script src="//cdn.tymapp.com/get/7os/web-drag-nav/web-drag-nav.min.js" ></script>
+    <script src="//cdn.tymapp.com/get/7os/web-fader-box/web-fader-box.min.js" ></script>
     <!-- project scripts -->
-    <script src="<?php echo \html_script ("base.min.js"); ?>" charset="utf-8"></script>
+    <script src="<?php echo \html_script ("base.min.js"); ?>" ></script>
   </body>
 </html>
