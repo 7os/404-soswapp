@@ -1,8 +1,8 @@
 {
-    "name": "7os/web-app-404",
+    "name": "7os/404-soswapp",
     "description": "7 OS Web - App template",
     "keywords": ["php", "javascript","7","seven","os","web","app"],
-    "homepage": "https://github.com/7os/web-app-404",
+    "homepage": "https://github.com/7os/404-soswapp",
     "type": "library",
     "license": "MIT",
     "authors": [
